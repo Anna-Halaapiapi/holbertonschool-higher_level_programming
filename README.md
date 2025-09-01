@@ -1,0 +1,1 @@
+The purpose of this README is to provide a description of the repository 'holbertonschool-higher_level_programming'
