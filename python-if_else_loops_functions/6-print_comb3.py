@@ -6,4 +6,4 @@ for i in range(0, 10):
             break
         if (j != i) and (j != 0) and (i < j):
             print("{0}{1}, ".format(i, j), end='')
-print("{}{}".format(8, 9), end='')
+print("{}{}\n".format(8, 9), end='')
