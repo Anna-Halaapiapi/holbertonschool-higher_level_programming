@@ -1,9 +1,6 @@
 #!/usr/bin/python3
-
-#for first digit
 for i in range(0, 10):
 
-    #for second digit
     for j in range(0, 10):
         if (i == 8) and (j == 9):
             break
