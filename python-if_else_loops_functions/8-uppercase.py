@@ -12,4 +12,4 @@ def uppercase(str):
         letter = chr(letter)
         print("{}".format(letter), end='')
 
-    print("\n")
+    print("\n", end='')
