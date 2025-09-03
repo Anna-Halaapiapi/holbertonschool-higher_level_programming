@@ -4,12 +4,10 @@ def uppercase(str):
     """Prints a string in uppercase"""
 
     for i in range(len(str)):
-        letter = (ord(str[i]))
+        letter = ord(str[i])
 
-        if (letter <= 96) and (letter >= 123):
-            chr(letter)
-            print("{}".format(letter), end='')
-            continue
+        if (letter >= 97) and (letter <= 122):
+            letter = letter - 32
+    print("{}".format(chr(letter)), end='')
 
-        letter = letter - 32
-        print("{}".format(chr(letter)), end='')
+print("\n")
