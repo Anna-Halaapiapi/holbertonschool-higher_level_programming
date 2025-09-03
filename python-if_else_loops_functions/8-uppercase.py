@@ -8,8 +8,8 @@ def uppercase(str):
 
         if (letter <= 96) and (letter >= 123):
             chr(letter)
-            print("{}".format(letter))
+            print("{}".format(letter), end='')
             continue
 
         letter = letter - 32
-        print("{}".format(chr(letter)))
+        print("{}".format(chr(letter)), end='')
