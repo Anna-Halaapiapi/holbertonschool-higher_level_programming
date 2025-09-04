@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import calculator_1.py as calc
+import calculator_1 as calc
 
 if __name__ == "__main__":
     a = 10
@@ -8,5 +8,5 @@ if __name__ == "__main__":
 
     print("{0} + {1} = {2}".format(a, b, calc.add(a, b)))
     print("{0} - {1} = {2}".format(a, b, calc.sub(a, b)))
-    print("{0} x {1} = {2}".format(a, b, calc.mul(a, b)))
+    print("{0} * {1} = {2}".format(a, b, calc.mul(a, b)))
     print("{0} / {1} = {2}".format(a, b, calc.div(a, b)))
