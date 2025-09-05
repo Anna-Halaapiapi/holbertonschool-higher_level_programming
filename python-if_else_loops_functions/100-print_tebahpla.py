@@ -5,7 +5,7 @@ y = 91
 i = 0
 letter = 0
 
-while (i <= 26):
+while (i < 26):
 
     if (i % 2 == 0):  # lowercase
         x = x - 2
