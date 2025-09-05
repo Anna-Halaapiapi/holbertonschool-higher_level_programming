@@ -1,1 +1,0 @@
-The purpose of this README.md is to provide information on the 'holbertonschool-chatgpt-introduction' repo.
