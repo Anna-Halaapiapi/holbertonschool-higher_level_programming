@@ -4,7 +4,7 @@ def print_matrix_integer(matrix=[[]]):
     """prints a matrix of ints"""
     for row in matrix:
         for element in row:
-            print(element, " ", end='')
+            print("{} ".format(element), end='')
         print()
 
 # matrix = [
