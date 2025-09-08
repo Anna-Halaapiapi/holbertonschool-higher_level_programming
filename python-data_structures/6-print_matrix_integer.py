@@ -2,9 +2,15 @@
 
 def print_matrix_integer(matrix=[[]]):
     """prints a matrix of ints"""
+    # outer loop for row
     for row in matrix:
+        index = 0
+        # inner loop for column
         for element in row:
-            print("{:d} ".format(element), end='')
+            print("{:d}".format(element), end='')
+            if index < len(row) - 1:
+                print(" ", end='')
+            index = index + 1
         print()
 
 # matrix = [
