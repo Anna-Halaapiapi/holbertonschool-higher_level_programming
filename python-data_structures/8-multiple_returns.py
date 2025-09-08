@@ -3,7 +3,10 @@
 def multiple_returns(sentence):
     """returns a tuple with the length of a string and its first character"""
     length = len(sentence)
-    first_character = sentence[0]
+    if length == 0:
+        first_character = None
+    else:
+        first_character = sentence[0]
 
     new_tuple = (length, first_character)
     return new_tuple
