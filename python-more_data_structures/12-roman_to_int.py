@@ -6,10 +6,11 @@ def roman_to_int(roman_string):
     roman_string: the roman numeral to convert
     Return:
     the converted integer or
-    0 if roman_string is not a string or None 
+    0 if roman_string is not a string, empty or None
     """
     # dictionary of all poss keys & values
-    roman_dict = {"I": 1, "IV": 4, "V": 5, "IX": 9, "X": 10, "L": 50, "C" : 100, "D": 500, "M": 1000}
+    roman_dict = {"I": 1, "IV": 4, "V": 5, "IX": 9, "X": 10,
+                  "L": 50, "C": 100, "D": 500, "M": 1000}
     # check if roman string None or empty
     if roman_string is None or "":
         return 0
@@ -36,5 +37,5 @@ def roman_to_int(roman_string):
         return number
 
 
-roman_number = "XII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+# roman_number = "XII"
+# print("{} = {}".format(roman_number, roman_to_int(roman_number)))
