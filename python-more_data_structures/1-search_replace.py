@@ -2,12 +2,12 @@
 
 def search_replace(my_list, search, replace):
     """Replaces all occurrences of an element with another
-    
+
     Args:
     my_list: original list
     search: the element to replace
     replace: the new element
-    
+
     Return:
     the updated list
     """
