@@ -6,13 +6,13 @@ def roman_to_int(roman_string):
     roman_string: the roman numeral to convert
     Return:
     the converted integer or
-    0 if roman_string is not a string, empty or None
+    0 if roman_string is not a string or None
     """
     # dictionary of all poss keys & values
     roman_dict = {"I": 1, "IV": 4, "V": 5, "IX": 9, "X": 10,
                   "L": 50, "C": 100, "D": 500, "M": 1000}
-    # check if roman string None or empty
-    if roman_string is None or "":
+    # check if roman string None
+    if roman_string is None:
         return 0
 
     # check if string is not a string
@@ -21,21 +21,35 @@ def roman_to_int(roman_string):
 
     # check if roman string is preexisting in dict
     if roman_string in roman_dict:
-        number = roman_dict[roman_string]
-        return number
+        result = roman_dict[roman_string]
+        return result
 
     # # build number if doesn't already exist in dictionary
     # # outer loop - chars in string
     # # inner loop - check roman dictionary
     else:
-        number = 0
-        for char in roman_string:
-            for key, value in roman_dict.items():
-                if char in roman_dict:
-                    number = number + roman_dict[char]
-                    break
-        return number
+        str_length = len(roman_string)
+        result = 0
+        i = 0
+        while i < str_length:
+            if roman_string[i] == 'I' and i < str_length - 1:
+                next_char = roman_string[i + 1]
+                # handle special 'IV' and 'IX' within string
+                if next_char == 'V':
+                    result = result + roman_dict['IV']
+                    i = i + 2
+                    continue
+
+                if next_char == 'X':
+                    result = result + roman_dict['IX']
+                    i = i + 2
+                    continue
+            # handle normal numerals
+            if roman_string[i] in roman_dict:
+                result = result + roman_dict[roman_string[i]]
+            i = i + 1
+        return result
 
 
-# roman_number = "XII"
+# roman_number = "XIX"
 # print("{} = {}".format(roman_number, roman_to_int(roman_number)))
