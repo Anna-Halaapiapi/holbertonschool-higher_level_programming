@@ -10,13 +10,15 @@ def multiply_by_2(a_dictionary):
     Return:
     updated dictionary
     """
-    for key in a_dictionary:
-        a_dictionary[key] = a_dictionary[key] * 2
+    new_dict = a_dictionary.copy()
 
-    return a_dictionary
+    for key in a_dictionary:
+        new_dict[key] = a_dictionary[key] * 2
+
+    return new_dict
 
 
 # a_dictionary = {'John': 12, 'Alex': 8, 'Bob': 14, 'Mike': 14, 'Molly': 16}
-# print(a_dictionary)
 # new_dict = multiply_by_2(a_dictionary)
+# print(a_dictionary)
 # print(new_dict)
