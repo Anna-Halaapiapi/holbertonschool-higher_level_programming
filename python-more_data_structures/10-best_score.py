@@ -8,12 +8,10 @@ def best_score(a_dictionary):
 
     Return: key for max value or None if dict is None.
     """
-    if a_dictionary is None:
+    if a_dictionary is None or len(a_dictionary) == 0:
         return None
 
     max_value = max(a_dictionary.values())
-    if max_value is None:
-        return None
 
     for key, value in a_dictionary.items():
         if value == max_value:
