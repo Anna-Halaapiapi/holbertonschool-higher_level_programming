@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""
+This module provides the add_integer function that adds two integers.
 
+The function accepts integers or floats, and will convert any floats to ints.
+Any other data types passed to the function will raise a TypeError.
+"""
 def add_integer(a, b=98):
     """adds two ints.
     Args:
