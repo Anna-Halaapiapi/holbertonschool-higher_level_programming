@@ -14,9 +14,7 @@ def safe_print_list(my_list=[], x=0):
     n = 0
     while (i < x):
         try:
-            print("{:d}".format(my_list[i]), end='')
-        except TypeError:
-            break
+            print("{}".format(my_list[i]), end='')
         except IndexError:
             break
         i = i + 1
