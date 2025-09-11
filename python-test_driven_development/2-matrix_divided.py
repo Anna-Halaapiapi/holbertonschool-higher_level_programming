@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 """
-
-
+This module provides the matrix_divided function.
+This function takes a matrix (list of lists) and a div (divider).
+The function will divide each element of the matrix by the divider.
+Returns a new matrix with the computed values.
+Produces errors for invalid inputs.
 """
 
 
 def matrix_divided(matrix, div):
     """divides all elements of a matrix
-    
+
     Args:
     matrix: list of lists that must contain ints or floats
     div: int or float to divide the matrix by.
@@ -27,7 +30,8 @@ def matrix_divided(matrix, div):
     for row in matrix:
         for element in row:
             if not isinstance(element, (float, int)):
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError
+                ("matrix must be a matrix (list of lists) of integers/floats")
 
     # check if all row lengths are the same
     check_row_len = set(map(len, matrix))
@@ -36,7 +40,7 @@ def matrix_divided(matrix, div):
 
     new_matrix = []
     row_length = len(matrix[0])
- 
+
     # build new matrix with computed values
     for row in matrix:
         new_row = [] * row_length
