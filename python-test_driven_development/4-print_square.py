@@ -19,3 +19,6 @@ def print_square(size):
     while (i < size):
         print("#" * size)
         i = i + 1
+
+
+print_square()
