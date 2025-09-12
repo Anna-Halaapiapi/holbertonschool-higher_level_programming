@@ -31,4 +31,4 @@ def text_indentation(text):
 
     # print any leftover line(s)
     if len(line.strip()) > 0:
-        print(line.strip())
+        print(line.strip(), end='')
