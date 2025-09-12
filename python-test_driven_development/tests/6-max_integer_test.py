@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from task_six import max_integer
+max_integer = __import__('6-max_integer').max_integer
 import unittest
 
 # test class
