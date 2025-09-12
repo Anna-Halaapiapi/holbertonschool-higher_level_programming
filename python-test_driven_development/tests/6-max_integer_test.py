@@ -6,8 +6,7 @@ from math import inf
 # test class
 class TestMaxInteger(unittest.TestCase):
     def test_max_at_end(self):
-        result = max_integer([1, 2, 3, 4])
-        self.assertEqual(result, 4)
+        self.assertEqual(max_integer([1, 2, 3, 4, 5]), 5)
     
     def test_int_max_at_mid(self):
         result = max_integer([1, 3, 4, 2])
