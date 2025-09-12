@@ -22,20 +22,20 @@ import unittest
 from math import inf
 
 # test class
-class TestMaxIntFunction(unittest.TestCase):
-    def test_int_listend(self):
+class TestMaxInteger(unittest.TestCase):
+    def test_max_at_end(self):
         result = max_integer([1, 2, 3, 4])
         self.assertEqual(result, 4)
     
-    def test_int_listmid(self):
+    def test_int_max_at_mid(self):
         result = max_integer([1, 3, 4, 2])
         self.assertEqual(result, 4)
 
-    def test_int_liststart(self):
+    def test_int_max_at_start(self):
         result = max_integer([4, 3, 1, 2])
         self.assertEqual(result, 4)
 
-    def test_int_multiplemax(self):
+    def test_int_multiple_max(self):
         result = max_integer([4, 3, 4, 2])
         self.assertEqual(result, 4)
 
