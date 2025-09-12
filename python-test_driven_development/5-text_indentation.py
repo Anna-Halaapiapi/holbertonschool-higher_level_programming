@@ -26,9 +26,9 @@ def text_indentation(text):
         if char in spec_char:
             print(line.strip())
             print()
+            print()
             line = ''
 
     # print any leftover line(s)
     if len(line.strip()) > 0:
-        print(line)
-        print()
+        print(line.strip())
