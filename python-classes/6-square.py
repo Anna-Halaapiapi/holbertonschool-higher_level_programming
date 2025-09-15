@@ -78,4 +78,5 @@ class Square:
                 print(" " * self.__position[0], end='')
                 print("#" * self.__size, end='')
                 print(" " * self.__position[1], end='')
+                print()
                 i = i + 1
