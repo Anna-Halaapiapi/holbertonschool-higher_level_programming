@@ -11,31 +11,8 @@ class Square:
     ValueError is raised if size is less than 0.
     """
     def __init__(self, size=0, position=(0, 0)):
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-
-        if len(position) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-        if not isinstance(position, tuple):
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-        if not isinstance(position[0], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-        if not isinstance(position[1], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-        if position[0] < 0 or position[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-
-        if position[1] > 0:
-            position[1] == 0
-
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     # size - getter
     @property
@@ -60,14 +37,23 @@ class Square:
     # position - setter
     @position.setter
     def position(self, value):
-        if len(position) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
+        msg = "position must be a tuple of 2 positive integers"
+        if not isinstance(value, tuple):
+            raise TypeError(msg)
+
+        if len(value) != 2:
+            raise TypeError(msg)
+
+        if not isinstance(value[0], int):
+            raise TypeError(msg)
+
+        if not isinstance(value[1], int):
+            raise TypeError(msg)
+
         if value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if not isinstance(value, int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if position[1] > 0:
-            position[1] == 0
+            raise TypeError(msg)
+
+        self.__position = value
 
     def area(self):
         area = self.__size * self.__size
@@ -79,9 +65,8 @@ class Square:
 
         else:
             i = 0
+            print("\n" * self.__position[1], end='')
             while (i < self.__size):
                 print(" " * self.__position[0], end='')
-                print("#" * self.__size, end='')
-                print(" " * self.__position[1], end='')
-                print()
+                print("#" * self.__size)
                 i = i + 1
