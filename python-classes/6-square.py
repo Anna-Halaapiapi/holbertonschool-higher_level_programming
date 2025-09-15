@@ -63,6 +63,8 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         if not isinstance(value, int):
             raise TypeError("position must be a tuple of 2 positive integers")
+        if position[1] > 0:
+            position[1] == 0
 
     def area(self):
         area = self.__size * self.__size
