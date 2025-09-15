@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module provides the Square class.
+The square class is intentionally empty.
+"""
 
 class Square:
     """
