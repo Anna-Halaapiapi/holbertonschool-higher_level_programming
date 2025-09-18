@@ -92,6 +92,10 @@ class SinglyLinkedList:
         format the output of print() in 100-main.py
         per the task requirements
         """
+        # check if list empty
+        if self.__head is None:
+            return ""
+
         # find start of singly linked list
         current_node = self.__head
 
