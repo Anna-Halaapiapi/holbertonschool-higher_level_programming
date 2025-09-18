@@ -98,9 +98,9 @@ class SinglyLinkedList:
         formatted_string = ""
 
         # build new string with data attributes from nodes
-        while (current_node is not None):
+        while (current_node.next_node is not None):
             formatted_string = formatted_string + str(current_node.data)
             formatted_string = formatted_string + "\n"
             current_node = current_node.next_node
-
+        formatted_string = formatted_string + str(current_node.data)
         return formatted_string
