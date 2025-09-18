@@ -92,14 +92,14 @@ class SinglyLinkedList:
         format the output of print() in 100-main.py
         per the task requirements
         """
+        formatted_string = ""
+
         # check if list empty
         if self.__head is None:
-            return ""
+            return formatted_string
 
         # find start of singly linked list
         current_node = self.__head
-
-        formatted_string = ""
 
         # build new string with data attributes from nodes
         while (current_node.next_node is not None):
