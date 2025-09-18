@@ -61,18 +61,17 @@ class SinglyLinkedList:
         # find start of list (first node)
         current_node = self.__head
 
+        # check for insertion at beginning of non-empty list
+        if (new_node.data < current_node.data):
+            # insert new node at start of list
+            new_node.next_node = self.__head
+            self.__head = new_node
+            return
+
         # loop through list until:
         # hitting end of list (tail/None)
         # exit method if insertion position found
-
         while (current_node.next_node is not None):
-            # check for insertion at beginning of existing list
-            if (new_node.data < current_node.data):
-                # insert new node at start of list
-                new_node.next_node = self.__head
-                self.__head = new_node
-                return
-
             # check for correct mid-list position (not start or end)
             if (new_node.data < current_node.next_node.data):
                 # insert node in correct position
@@ -84,10 +83,9 @@ class SinglyLinkedList:
             current_node = current_node.next_node
 
         # if correct position not found in loop - add new node to end of list
-        if current_node.next_node is None:
-            current_node.next_node = new_node
-            new_node.next_node = None
-            return
+        current_node.next_node = new_node
+        new_node.next_node = None
+        return
 
     def __str__(self):
         """
@@ -100,7 +98,7 @@ class SinglyLinkedList:
         formatted_string = ""
 
         # build new string with data attributes from nodes
-        while (current_node.next_node is not None):
+        while (current_node is not None):
             formatted_string = formatted_string + str(current_node.data)
             formatted_string = formatted_string + "\n"
             current_node = current_node.next_node
