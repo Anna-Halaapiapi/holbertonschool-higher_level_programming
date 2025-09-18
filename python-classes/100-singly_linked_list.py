@@ -78,3 +78,21 @@ class SinglyLinkedList:
             current_node.next_node = new_node
             new_node.next_node = None
             return
+
+    def __str__(self):
+        """
+        format the output of print in 100-main.py 
+        per the task requirements
+        """
+        # find start of singly linked list
+        current_node = self.__head
+        
+        formatted_string = ""
+
+        # build new list with data attributes from nodes
+        while (current_node.next_node is not None):
+            formatted_string = formatted_string + str(current_node.data)
+            formatted_string = formatted_string + "\n"
+            current_node = current_node.next_node
+        
+        return formatted_string
