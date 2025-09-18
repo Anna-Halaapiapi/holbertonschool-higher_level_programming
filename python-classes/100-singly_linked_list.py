@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module provides the Node and SinglyLinkedList classes.
+"""
+
 
 class Node:
     """
