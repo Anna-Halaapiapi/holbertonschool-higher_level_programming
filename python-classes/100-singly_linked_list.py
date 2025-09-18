@@ -59,11 +59,17 @@ class SinglyLinkedList:
 
         # loop through list until:
         # hitting end of list (tail/None)
-        # break loop if insertion position found
+        # exit method if insertion position found
 
         while (current_node.next_node is not None):
+            # check for insertion at beginning of existing list
+            if (new_node.data < current_node.data):
+                # insert new node at start of list
+                new_node.next_node = self.__head
+                self.__head = new_node
+                return
 
-            # check for correct position
+            # check for correct mid-list position (not start or end)
             if (new_node.data < current_node.next_node.data):
                 # insert node in correct position
                 new_node.next_node = current_node.next_node
@@ -81,18 +87,18 @@ class SinglyLinkedList:
 
     def __str__(self):
         """
-        format the output of print in 100-main.py 
+        format the output of print() in 100-main.py
         per the task requirements
         """
         # find start of singly linked list
         current_node = self.__head
-        
+
         formatted_string = ""
 
-        # build new list with data attributes from nodes
+        # build new string with data attributes from nodes
         while (current_node.next_node is not None):
             formatted_string = formatted_string + str(current_node.data)
             formatted_string = formatted_string + "\n"
             current_node = current_node.next_node
-        
+
         return formatted_string
