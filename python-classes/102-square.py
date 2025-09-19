@@ -43,7 +43,7 @@ class Square:
         returns True if self is equal to other, else returns False.
         """
         return self.size == other.size
-    
+
     def __ne__(self, other):
         """
         defines behaviour for != operator.
@@ -63,7 +63,7 @@ class Square:
         return True if self greater than other, else returns False
         """
         return self.size > other.size
-    
+
     def __ge__(self, other):
         """
         defines behaviour for >= operator.
@@ -73,7 +73,7 @@ class Square:
         return True if self greater than/equal to other, else returns False
         """
         return self.size >= other.size
-    
+
     def __lt__(self, other):
         """
         defines behaviour for < operator.
@@ -83,13 +83,13 @@ class Square:
         return True if self greater less than other, else returns False
         """
         return self.size < other.size
-    
+
     def __le__(self, other):
         """
         defines behaviour for <= operator.
         Args:
         self: first object to compare
         other: second object to compare
-        return True if self greater less than/equal to other, else returns False
+        return True if self <= other, else returns False
         """
         return self.size <= other.size
