@@ -75,7 +75,7 @@ class Square:
         if self.__size == 0:
             return "\n"
 
-        formatted_string = ""
+        formatted_string = "\n" * self.__position[1]
         i = 0
         while (i < self.__size):
             formatted_string += " " * self.__position[0]
