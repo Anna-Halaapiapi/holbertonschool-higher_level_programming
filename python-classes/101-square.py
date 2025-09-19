@@ -73,14 +73,14 @@ class Square:
 
     def __str__(self):
         if self.__size == 0:
-            return "\n"
-
-        formatted_string = "\n" * self.__position[1]
-        i = 0
-        while (i < self.__size):
-            formatted_string += " " * self.__position[0]
-            formatted_string += "#" * self.__size
-            if i is not self.__size - 1:
-                formatted_string += "\n"
-            i += 1
-        return formatted_string
+            return ""
+        else:
+            formatted_string = "\n" * self.__position[1]
+            i = 0
+            while (i < self.__size):
+                formatted_string += " " * self.__position[0]
+                formatted_string += "#" * self.__size
+                if i is not self.__size - 1:
+                    formatted_string += "\n"
+                i += 1
+            return formatted_string
