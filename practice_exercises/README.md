@@ -9,5 +9,7 @@ It will be used to reinforce topics such as:
 - Loops
 - Input/output
 - String formatting
+- OOP
+- Inheritance
 
 These exercises are meant to compliment regular coursework.
