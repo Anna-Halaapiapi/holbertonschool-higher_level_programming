@@ -81,10 +81,11 @@ class Square:
             i = 0
             formatted_string += ("\n" * self.__position[1])
 
-            while (i < self.__size):
+            while (i < (self.__size - 1)):
                 formatted_string += (" " * self.__position[0])
                 formatted_string += ("#" * self.__size)
                 formatted_string += "\n"
                 i = i + 1
-
+            formatted_string += (" " * self.__position[0])
+            formatted_string += ("#" * self.__size)
         return formatted_string
