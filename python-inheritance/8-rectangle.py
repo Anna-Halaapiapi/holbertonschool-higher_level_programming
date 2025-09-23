@@ -20,11 +20,8 @@ class BaseGeometry:
         """
         if type(value) is not int:
             raise TypeError(f"{name} must be an integer")
-            return False
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
-            return False
-        return True
 
 
 class Rectangle(BaseGeometry):
@@ -32,7 +29,7 @@ class Rectangle(BaseGeometry):
     This class defines a Rectangle and inherits from BaseGeometry.
     """
     def __init__(self, width, height):
-        if super().integer_validator("width", width) is True:
-            self.__width = width
-        if super().integer_validator("height", height) is True:
-            self.__height = height
+        super().integer_validator("width", width)
+        self.__width = width
+        super().integer_validator("height", height)
+        self.__height = height
