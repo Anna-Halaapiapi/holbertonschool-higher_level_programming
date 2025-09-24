@@ -28,7 +28,7 @@ class Dragon(SwimMixin, FlyMixin):
     """
 
     def roar(self):
-        print("The dragon makes a low growl...")
+        print("The dragon roars!")
 
     def appearance(self):
         print("The dragon has purple scales and yellow horns.")
