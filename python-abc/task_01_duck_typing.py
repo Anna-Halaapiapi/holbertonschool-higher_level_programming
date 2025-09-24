@@ -6,6 +6,7 @@ This module provides the abstract class Shape.
 from abc import ABC, abstractmethod
 import math
 
+
 class Shape(ABC):
     """
     defines a shape.
@@ -18,13 +19,15 @@ class Shape(ABC):
     def perimeter(self):
         pass
 
+
 class Circle(Shape):
     """
     defines circle. inherits from abstract class Shape.
     """
     def __init__(self, radius):
+        if radius < 0:
+            raise ValueError("radius cannot be less than 0")    
         self.radius = radius
-
 
     def area(self):
         return math.pi * (self.radius ** 2)
