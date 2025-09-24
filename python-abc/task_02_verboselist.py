@@ -29,21 +29,15 @@ class VerboseList(list):
     def remove(self, item):
         """
         uses built-in list's remove method.
-        prints message before removing item from start of list.
+        prints message before removing item from list.
         """
         print(f"Removed [{item}] from the list")
         super().remove(item)
 
-    def pop(self, index=None):
+    def pop(self, index=-1):
         """
         uses built-in list's pop method.
         prints message before removing item from list.
         """
-        list_end_index = (len(self) - 1)
-
-        if index is None:
-            print(f"Popped [{self[list_end_index]}] from the list")
-            super().pop()
-        else:
-            print(f"Popped [{self[index]}] from the list")
-            super().pop(index)
+        print(f"Popped [{self[index]}] from the list")
+        super().pop(index)
