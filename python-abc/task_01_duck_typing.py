@@ -25,14 +25,16 @@ class Circle(Shape):
     defines circle. inherits from abstract class Shape.
     """
     def __init__(self, radius):
-        if radius < 0:
-            raise ValueError("radius cannot be less than 0")    
         self.radius = radius
 
     def area(self):
+        if radius < 0:
+            raise ValueError("radius cannot be less than 0")
         return math.pi * (self.radius ** 2)
 
     def perimeter(self):
+        if radius < 0:
+            raise ValueError("radius cannot be less than 0")
         return 2 * math.pi * self.radius
 
 
