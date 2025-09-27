@@ -11,5 +11,6 @@ It will be used to reinforce topics such as:
 - String formatting
 - OOP
 - Inheritance
+- File I/O
 
 These exercises are meant to compliment regular coursework.
