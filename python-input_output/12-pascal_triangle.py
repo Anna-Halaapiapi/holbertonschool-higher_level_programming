@@ -34,7 +34,7 @@ def pascal_triangle(n):
                 new_row[j] = 1
 
             # handle 1 at end of list
-            if j == len(new_row) - 1:
+            elif j == len(new_row) - 1:
                 new_row[j] = 1
             
             else:
