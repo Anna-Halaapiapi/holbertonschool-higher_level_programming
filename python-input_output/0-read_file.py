@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module provides the read_file function.
+"""
+
 
 def read_file(filename=""):
     """
