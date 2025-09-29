@@ -18,12 +18,15 @@ class Student:
         retrieves a dictionary representation of a Student instance.
         """
         # return all attributes
-        if attrs is None or len(attrs) == 0:
+        if attrs is None:
             return self.__dict__
 
-        # else return only attributes in list of strings
+        # return specified attributes
         else:
             new_dict = {}
+            if len(attrs) == 0:
+                return new_dict
+
             for a in attrs:
                 if a in self.__dict__:
                     new_dict[a] = self.__dict__[a]
