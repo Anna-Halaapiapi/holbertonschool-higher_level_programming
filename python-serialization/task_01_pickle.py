@@ -25,15 +25,18 @@ class CustomObject:
         """
         prints object's attributes in format required by task.
         """
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"Is Student: {self.is_student}")
+        print("Name: {}".format(self.name))
+        print("Age: {}".format(self.age))
+        print("Is Student: {}".format(self.is_student))
 
     def serialize(self, filename):
         """
         using pickle, serializes the current instance of the object
         and saves it to the provided filename.
         """
+        if not filename:
+            return None
+
         try:
             with open(filename, 'wb') as f:
                 pickle.dump(self, f)
@@ -47,6 +50,9 @@ class CustomObject:
         using pickle, this function will load and return an instance
         of the CustomObject from the provided filename.
         """
+        if not filename:
+            return None
+
         try:
             with open(filename, 'rb') as f:
                 return pickle.load(f)
