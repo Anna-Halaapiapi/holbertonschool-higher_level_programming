@@ -45,15 +45,8 @@ def deserialize_from_xml(filename):
     new_dict = {}
     # Navigate through the XML elements to reconstruct the dictionary
     for child in root:
-        value = child.text  # returns str (original dict value)
-        try:  # try convert str to int, float, else leave as str
-            value = int(value)
-        except ValueError:
-            try:
-                value = float(value)
-            except ValueError:
-                pass
         # add the tag (key) and converted value (value) to new dict
-        new_dict[child.tag] = value
+        new_dict[child.tag] = child.text
+    
     # Return the constructed dictionary.
     return new_dict
