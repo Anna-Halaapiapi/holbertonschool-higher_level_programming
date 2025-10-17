@@ -66,3 +66,7 @@ def start_server():
     print('server started')
     # ensure server keeps running and listening for requests
     h.serve_forever()
+
+
+if __name__ == "__main__":
+    start_server()
