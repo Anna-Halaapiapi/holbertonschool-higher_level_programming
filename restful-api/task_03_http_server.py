@@ -51,7 +51,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         else:
             self.send_response(404)
             self.send_header('Content-Type', 'text/plain')
-            self.end_headers
+            self.end_headers()
             self.wfile.write(b"Endpoint not found")
 
 
@@ -66,3 +66,5 @@ def start_server():
     print('server started')
     # ensure server keeps running and listening for requests
     h.serve_forever()
+
+start_server()
