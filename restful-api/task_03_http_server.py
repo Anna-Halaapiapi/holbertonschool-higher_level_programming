@@ -66,5 +66,3 @@ def start_server():
     print('server started')
     # ensure server keeps running and listening for requests
     h.serve_forever()
-
-start_server()
