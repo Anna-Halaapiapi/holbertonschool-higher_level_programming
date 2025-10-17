@@ -1,0 +1,36 @@
+Task 0: Basics of HTTP/HTTPS
+
+1. A brief summary explaining the differences between HTTP and HTTPS.
+HTTP sends data in requests and responses between client and server in plain text.
+HTTPS adds TLS/SSL encryption, to ensure data is confidential and to maintain the data's integrity.
+HTTPS is the preferred protocol for transmitting sensitive data (for example, generally financial institutions and email providers would use HTTPS over HTTP)
+
+2. A depiction or outline of the structure of an HTTP request and response.
+HTTP Request
+A typical HTTP request contains:
+a. HTTP version type
+b. a URL
+c. an HTTP method
+d. HTTP request headers
+e. Optional HTTP body.
+
+HTTP Response
+A typical HTTP response contains:
+a. an HTTP status code
+b. HTTP response headers
+c. optional HTTP body
+
+
+3. Lists of common HTTP methods and status codes with their descriptions and possible use cases.
+Common HTTP Methods:
+GET: Retrieves data. Use case: Fetch a web page or API data.
+POST: Creates a new resource. Use case: Submit a form or add a new user.
+PUT: Updates an existing resource. Use case: Update user profile or data.
+DELETE: Deletes a resource. Use case: Remove a user or item.
+
+Common HTTP Status Codes:
+200 OK: Request succeeded.
+201 Created: New resource successfully created.
+400 Bad Request: Client sent invalid data.
+404 Not Found: Resource doesn’t exist.
+500 Internal Server Error: Server failed to process request.
