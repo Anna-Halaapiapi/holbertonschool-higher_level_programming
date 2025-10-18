@@ -6,10 +6,13 @@ provides a simple API using Flask.
 from flask import Flask
 from flask import jsonify
 from flask import request
+from werkzeug.exceptions import BadRequest
 
 
 # create web server
 app = Flask(__name__)
+
+users = {}
 
 
 @app.route("/")
