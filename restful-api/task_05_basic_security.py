@@ -33,6 +33,32 @@ def verify_password(username, password):
     return None
 
 
+# JWT Error Handlers
+@jwt.unauthorized_loader
+def handle_unauthorized_error(err):
+    return jsonify({"error": "Missing or invalid token"}), 401
+
+
+@jwt.invalid_token_loader
+def handle_invalid_token_error(err):
+    return jsonify({"error": "Invalid token"}), 401
+
+
+@jwt.expired_token_loader
+def handle_expired_token_error(err):
+    return jsonify({"error": "Token has expired"}), 401
+
+
+@jwt.revoked_token_loader
+def handle_revoked_token_error(err):
+    return jsonify({"error": "Token has been revoked"}), 401
+
+
+@jwt.needs_fresh_token_loader
+def handle_needs_fresh_token_error(err):
+    return jsonify({"error": "Fresh token required"}), 401
+
+# routes
 @app.route("/login", methods=["POST"])
 def login():
     """
@@ -53,7 +79,10 @@ def login():
         # verify p/w
         if check_password_hash(stored_hash, password):
             # create JWT token
-            token = create_access_token(identity=username)
+            token = create_access_token(identity={
+                "username": username,
+                "role": users[username]["role"]
+            })
             # return token in JSON
             return jsonify({"access_token": token})
     # invalid username or p/w
@@ -66,7 +95,7 @@ def basic_protected():
     """
     define route for basic protected endpoint
     """
-    return "Basic Auth: Access Granted"
+    return jsonify({"message": "Basic Auth: Access Granted"})
 
 
 @app.route("/jwt-protected", methods=["GET"])
@@ -76,7 +105,7 @@ def jwt_protected():
     define route for /jwt-protected
     protected route with JWT token
     """
-    return "JWT Auth: Access Granted"
+    return jsonify({"message": "JWT Auth: Access Granted"})
 
 
 @app.route("/admin-only", methods=["GET"])
@@ -87,11 +116,12 @@ def admin_only():
     only accessible for users with admin role
     """
     # get username from JWT token
-    username = get_jwt_identity()
+    identity = get_jwt_identity()
+    role = identity.get("role")
 
     # check user exists
-    if username in users and users[username]["role"] == "admin":
-        return "Admin Access: Granted"
+    if role == "admin":
+        return jsonify({"message": "Admin Access: Granted"})
 
     # return error if user doesnt exist
     return jsonify({"error": "Admin access required"}), 403
