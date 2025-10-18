@@ -29,8 +29,8 @@ auth = HTTPBasicAuth()
 @auth.verify_password
 def verify_password(username, password):
     if username in users and check_password_hash(users[username]["password"], password):
-        return True
-    return False
+        return users[username]  # return the user object/dict
+    return None
 
 
 @app.route("/login", methods=["POST"])
