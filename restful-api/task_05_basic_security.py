@@ -95,7 +95,7 @@ def basic_protected():
     """
     define route for basic protected endpoint
     """
-    return jsonify({"message": "Basic Auth: Access Granted"})
+    return "Basic Auth: Access Granted"
 
 
 @app.route("/jwt-protected", methods=["GET"])
