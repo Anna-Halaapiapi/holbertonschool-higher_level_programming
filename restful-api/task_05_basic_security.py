@@ -121,7 +121,7 @@ def admin_only():
 
     # check user exists
     if role == "admin":
-        return jsonify({"message": "Admin Access: Granted"})
+        return "Admin Access: Granted"
 
     # return error if user doesnt exist
     return jsonify({"error": "Admin access required"}), 403
