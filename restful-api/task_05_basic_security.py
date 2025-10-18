@@ -48,7 +48,7 @@ def login():
             # create JWT token
             token = create_access_token(identity=username)
             # return token in JSON
-            return jsonify({"access_token": token})         
+            return jsonify({"access_token": token})
     # invalid username or p/w
     return jsonify({"error": "Unauthorised"}), 401
 
@@ -88,3 +88,8 @@ def admin_only():
 
     # return error if user doesnt exist
     return jsonify({"error": "Admin access required"}), 403
+
+
+# run flask development server
+if __name__ == "__main__":
+    app.run()
