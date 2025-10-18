@@ -105,7 +105,7 @@ def jwt_protected():
     define route for /jwt-protected
     protected route with JWT token
     """
-    return jsonify({"message": "JWT Auth: Access Granted"})
+    return "JWT Auth: Access Granted"
 
 
 @app.route("/admin-only", methods=["GET"])
