@@ -16,14 +16,20 @@ app.config["JWT_SECRET_KEY"] = "aS8d9f7gH3kL!2mN4pQzX1vR"
 # Initialise JWT manager
 jwt = JWTManager(app)
 
-# create auth object to handle basic auth for routes
-auth = HTTPBasicAuth()
-
 # Create a dict of users and their hashed passwords
 users = {
     "user1": {"username": "user1", "password": generate_password_hash("password1"), "role": "user"},
     "admin": {"username": "admin", "password": generate_password_hash("password2"), "role": "admin"}
 }
+
+# create auth object to handle basic auth for routes
+auth = HTTPBasicAuth()
+
+
+@auth.verify_password
+def verify_password(username, password):
+    if username in users and check_password_hash(users[username]["password"], password):
+        return username
 
 
 @app.route("/login", methods=["POST"])
