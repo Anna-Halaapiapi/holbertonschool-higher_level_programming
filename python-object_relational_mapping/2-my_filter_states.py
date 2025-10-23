@@ -48,7 +48,8 @@ if __name__ == "__main__":
     # cur.execute(sql_query, (arg,))
 
     # fetch single tuple per task output
-    result = cur.fetchone()
+    row = cur.fetchone()
 
-    if result is not None:
-        print(result)
+    while row is not None:
+        print(row)
+        row = cur.fetchone()
