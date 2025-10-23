@@ -42,6 +42,10 @@ if __name__ == "__main__":
     # find length of list
     results_length = len(results)
 
+    # if no results - print newline
+    if results_length == 0:
+        print()
+
     # print results
     for index, row in enumerate(results):
         if row is not None:
