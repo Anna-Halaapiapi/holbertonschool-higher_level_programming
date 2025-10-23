@@ -25,7 +25,7 @@ if __name__ == "__main__":
     cur.execute(
         (
             "SELECT * FROM states "
-            "WHERE states.name = '{a}' "
+            "WHERE BINARY states.name = '{a}' "
             "ORDER BY states.id ASC"
         ).format(a=sys.argv[4])
     )
