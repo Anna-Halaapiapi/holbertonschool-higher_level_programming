@@ -50,4 +50,5 @@ if __name__ == "__main__":
     # fetch single tuple per task output
     result = cur.fetchone()
 
-    print(result)
+    if result is not None:
+        print(result)
