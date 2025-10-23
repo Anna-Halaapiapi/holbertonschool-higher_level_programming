@@ -28,20 +28,20 @@ class State(Base):
     )
     name = Column(String(128), nullable=False)
 
+if __name__ == "__main__":
+    # create connection string
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database_name = sys.argv[3]
+    port = 3306
+    host = "localhost"
+    conn_str = (
+        f"mysql+mysqldb://{username}:{password}@"
+        f"{host}:{port}/{database_name}"
+    )
 
-# create connection string
-username = sys.argv[1]
-password = sys.argv[2]
-database_name = sys.argv[3]
-port = 3306
-host = "localhost"
-conn_str = (
-    f"mysql+mysqldb://{username}:{password}@"
-    f"{host}:{port}/{database_name}"
-)
+    # create connection between script and MySQL server
+    engine = create_engine(conn_str)
 
-# create connection between script and MySQL server
-engine = create_engine(conn_str)
-
-# create tables from class in server if they don't exist
-Base.metadata.create_all(engine)
+    # create tables from class in server if they don't exist
+    Base.metadata.create_all(engine)
