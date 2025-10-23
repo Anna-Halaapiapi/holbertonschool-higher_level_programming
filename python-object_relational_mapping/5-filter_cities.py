@@ -38,8 +38,14 @@ if __name__ == "__main__":
 
     # fetch and print results
     results = cur.fetchall()
+    
+    # find length of list
+    results_length = len(results)
 
-    for row in results[0:-1]:
+    # print results
+    for index, row in enumerate(results):
         if row is not None:
-            print(f"{row[0]}, ", end='')
-    print(row[0])
+            if index != results_length - 1:
+                print(f"{row[0]}, ", end='')
+            else:
+                print(row[0])
