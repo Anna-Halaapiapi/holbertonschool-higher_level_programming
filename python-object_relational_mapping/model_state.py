@@ -28,6 +28,7 @@ class State(Base):
     )
     name = Column(String(128), nullable=False)
 
+
 if __name__ == "__main__":
     # create connection string
     username = sys.argv[1]
