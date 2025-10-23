@@ -21,17 +21,20 @@ if __name__ == "__main__":
     # create cursor
     cur = conn.cursor()
 
-    # execute query
-    cur.execute(
-        (
-        f"SELECT cities.name "
-        f"FROM cities "
-        f"INNER JOIN states "
-        f"ON cities.state_id = states.id "
-        f"WHERE states.name = '{sys.argv[4]}'"
-        f"ORDER BY cities.id ASC"
-        )
+    # define sql query
+    sql_query = (
+        "SELECT cities.name "
+        "FROM cities "
+        "INNER JOIN states "
+        "ON cities.state_id = states.id "
+        "WHERE states.name = %s "
+        "ORDER BY cities.id ASC"
     )
+
+    state = sys.argv[4]
+
+    # execute
+    cur.execute(sql_query, (state,))
 
     # fetch and print results
     results = cur.fetchall()
