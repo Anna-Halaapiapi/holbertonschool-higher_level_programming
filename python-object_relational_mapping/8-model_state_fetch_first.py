@@ -23,10 +23,12 @@ if __name__ == "__main__":
     # create connection between script and MySQL server
     engine = create_engine(conn_str)
 
-    # Create a session
+    # Create a session for query
     Session = sessionmaker(bind=engine)
     session = Session()
+    # query states table, order by state id and return first state
     first_state = session.query(State).order_by(State.id).first()
+    # empty states table validation
     if first_state is None:
         print("Nothing")
     else:
