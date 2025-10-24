@@ -28,7 +28,10 @@ if __name__ == "__main__":
     # handles open & close session
     with Session(engine) as session:
         # build query stmt
-        stmt = select(State.name, City.id, City.name).join(City, City.state_id == State.id).order_by(City.id)
+        stmt = (
+            select(State.name, City.id, City.name)
+            .join(City, City.state_id == State.id)
+            .order_by(City.id))
         # exectute query & get results
         results = session.execute(stmt).all()
         # print results
