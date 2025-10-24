@@ -39,4 +39,4 @@ if __name__ == "__main__":
             print(results.id)
             # expected one, but no results returned
         except NoResultFound:
-            print("Not Found")
+            print("Not found")
