@@ -29,5 +29,7 @@ if __name__ == "__main__":
         # build delete stmt
         stmt = delete(State).where(State.name.like("%a%"))
         # execute and sync session with DB
-        session.execute(stmt, execution_options={"synchronize_session": "fetch"})
+        session.execute(
+            stmt, execution_options={"synchronize_session": "fetch"}
+            )
         session.commit()
