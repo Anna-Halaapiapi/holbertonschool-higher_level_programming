@@ -1,18 +1,16 @@
 #!/usr/bin/node
 // prints My number: <first argument converted in integer> if the first argument can be converted to an integer
 
-let intValue;
+const input = process.argv[2]; // get arg passed
+let intInput; // store arg converted to int
 
-// handle no args passed
-if (process.argv[2] === undefined) {
-  intValue = 'Not a number';
-// else convert the arg to int
+if (input === undefined) { // handles no arg passed
+  console.log('Not a number');
 } else {
-  intValue = parseInt(process.argv[2]);
+  intInput = parseInt(input); // convert to int
+  if (isNaN(intInput) === true) { // handles conversion failure
+    console.log('Not a number');
+  } else {
+    console.log('My number:', intInput); // handles print int to stdout
+  }
 }
-// handles converted value not a number
-if (isNaN (intValue)) {
-  intValue = 'Not a number';
-}
-// print result
-console.log(intValue);
