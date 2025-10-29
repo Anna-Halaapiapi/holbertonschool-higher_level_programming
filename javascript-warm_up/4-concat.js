@@ -3,22 +3,15 @@
 
 let argv1, argv2;
 
-// no args passed
-if (process.argv.length === 2) {
+if (process.argv.length === 2) { // no args passed
   argv1 = 'undefined';
   argv2 = 'undefined';
-}
-// one arg passed
-else if (process.argv.length === 3) {
+} else if (process.argv.length === 3) { // one arg passed
   argv1 = process.argv[2];
   argv2 = 'undefined';
-}
-
-// two args passed
-else if (process.argv.length === 4) {
+} else if (process.argv.length === 4) { // two args passed
   argv1 = process.argv[2];
   argv2 = process.argv[3];
 }
 
-// print to stdout
-console.log(argv1, 'is', argv2);
+console.log(argv1, 'is', argv2); // print to stdout
