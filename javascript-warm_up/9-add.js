@@ -2,7 +2,7 @@
 // prints the addition of 2 ints
 
 // define add function
-function add(a, b) {
+function add (a, b) {
   return a + b;
 }
 
