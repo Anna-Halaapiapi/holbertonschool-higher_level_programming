@@ -37,7 +37,7 @@ def generate_invitations(template, attendees):
         new_item = template
         for key in attendee:
             if attendee[key] is None:
-                value = key + "N/A"
+                value = "N/A"
             else:
                 value = attendee[key]
             new_item = new_item.replace("{" + key + "}", value)
