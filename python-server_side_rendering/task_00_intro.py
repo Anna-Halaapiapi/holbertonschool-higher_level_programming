@@ -39,7 +39,7 @@ def generate_invitations(template, attendees):
             if attendee[key] is None:
                 value = "N/A"
             else:
-                value = attendee[key]
+                value = str(attendee[key])
             new_item = new_item.replace("{" + key + "}", value)
         updated_templates.append(new_item)
 
