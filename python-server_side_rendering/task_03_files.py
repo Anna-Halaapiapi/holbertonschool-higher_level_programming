@@ -38,7 +38,7 @@ def products():
     source = request.args.get('source') # query parameter (string: 'json' or 'csv')
     p_id = request.args.get('id') # query parameter (string, optional)
 
-    products, error = serialize(source, str(p_id))
+    products, error = serialize(source, p_id)
 
     return render_template('product_display.html', products=products, error=error)
 
@@ -65,7 +65,7 @@ def serialize(source, p_id):
 
     for item in data:
         # Case 2: Match found - return matched product only
-        if str(item["id"]) == p_id:
+        if str(item["id"]) == str(p_id):
             return [item], None
 
     # Case 3: No match found - return an error
