@@ -25,9 +25,12 @@ def items():
     # load json data
     with open('items.json', 'r') as f:
         data = json.load(f)
-    
-    # pass data to items.html to use
-    return render_template('items.html', items=data)
+
+    # extract list
+    items = data.get('items', [])
+ 
+    # pass list to items.html to use
+    return render_template('items.html', items=items)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
