@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Products</title>
+    </head>
+    <body>
+        {% include 'header.html' %}
+        <!-- handle errors -->
+        {% if error == "Wrong source" %}
+        <p>Wrong source</p>
+        {% elif error == "Product not found" %}
+        <p>Product not found</p>
+        <!-- if no errs, display table of one or all products -->
+        {% else %}
+            <table>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+            {% for p in products %}
+                <tr>
+                    <td>{{ p.name }}</td>
+                    <td>{{ p.category }}</td>
+                    <td>{{ p.price }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        {% endif %}
+            
+        {% include 'footer.html' %}
+    </body>
+
+</html>
