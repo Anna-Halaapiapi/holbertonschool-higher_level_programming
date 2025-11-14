@@ -2,10 +2,10 @@
 <html lang="en">
 <title>Items List</title>
  <ul>
-    {% if not data["items"] %} <!-- check for empty list -->
+    {% if not items["items"] %} <!-- check for empty list -->
         <p>No items found</p>
     {% else %}
-        {% for value in data["items"] %} <!-- loop over list, display each value of key "items" -->
+        {% for value in items["items"] %} <!-- loop over list, display each value of key "items" -->
         <li>{{ value }}</li>
         {% endfor %}
     {% endif %}
