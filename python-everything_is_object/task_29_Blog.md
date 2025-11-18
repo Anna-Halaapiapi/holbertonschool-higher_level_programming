@@ -1,6 +1,7 @@
 # Mutable, Immutable... everything is an object!
-<i>Author: Anna Halaapiapi</i>
-[image](immut-mut-meme.jpg)
+<i>Author: Anna Halaapiapi</i>  
+
+![image](immut-mut-meme.jpg)
 
 ## Introduction
 The purpose of this document is to outline the learnings attained from the project 'Python - Everything is object'.
