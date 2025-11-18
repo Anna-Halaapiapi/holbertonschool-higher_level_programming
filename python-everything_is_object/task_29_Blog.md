@@ -4,7 +4,9 @@
 ![image](immut-mut-meme.jpg)
 
 ## Introduction
-The purpose of this document is to outline the learnings attained from the project 'Python - Everything is object'.
+In Python, <b>everything</b> (strings, integers, lists and so on...) is an object. Understanding how these objects behave, how variables reference them, how identity works, and the difference between mutable and immutable objects is essential for writing predictable code.
+
+This 'blog post' will outline the core concepts of determining object identity and data type, mutability, immutability, aliasing, and how function arguments are handled in Python.
 
 ## id and type
 ### id()
@@ -42,8 +44,7 @@ Because...
 >>> x = 5
 >>> print(type(x))
 
-#Output
-<class 'int'>
+#Output: <class 'int'>
 ```
 
 ## Mutable objects
@@ -61,8 +62,7 @@ BUT operations that rebuild or reassign will create a new object in memory.
 >>> a.append(4)
 >>> print(b)
 
-# Output
-[1, 2, 3, 4]
+# Output: [1, 2, 3, 4]
 ```
 - In this example, we perform an operation that rebuilds list 'a', creating a new object in memory. List 'b' however will still point to the original list:
 ```python
@@ -71,8 +71,7 @@ BUT operations that rebuild or reassign will create a new object in memory.
 >>> a = a + [4]
 >>> print(b)
 
-#Output
-[1, 2, 3]
+#Output: [1, 2, 3]
 ```
 
 ## Immutable objects
