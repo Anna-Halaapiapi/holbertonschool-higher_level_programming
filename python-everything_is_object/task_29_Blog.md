@@ -64,7 +64,7 @@ BUT operations that rebuild or reassign will create a new object in memory.
 
 # Output: [1, 2, 3, 4]
 ```
-In memory, this would look like:
+In memory, this would look like:  
 ![mem_schem](mut_method.jpg)
 
 - In this example, we perform an operation that rebuilds list 'a', creating a new object in memory. List 'b' however will still point to the original list:
@@ -76,7 +76,7 @@ In memory, this would look like:
 
 #Output: [1, 2, 3]
 ```
-In memory, this would look like:
+In memory, this would look like:  
 ![mem_schem](mut_op.jpg)
 
 ## Immutable objects
