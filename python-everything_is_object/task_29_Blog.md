@@ -64,6 +64,9 @@ BUT operations that rebuild or reassign will create a new object in memory.
 
 # Output: [1, 2, 3, 4]
 ```
+In memory, this would look like:
+![mem_schem](mut_method.jpg)
+
 - In this example, we perform an operation that rebuilds list 'a', creating a new object in memory. List 'b' however will still point to the original list:
 ```python
 >>> a = [1, 2, 3]
@@ -73,6 +76,8 @@ BUT operations that rebuild or reassign will create a new object in memory.
 
 #Output: [1, 2, 3]
 ```
+In memory, this would look like:
+![mem_schem](mut_op.jpg)
 
 ## Immutable objects
 - Immutable objects in Python are objects whose value you cannot modify after they've been created.
@@ -100,9 +105,9 @@ For example, if you create an alias for a mutable object (i.e. create another va
 On a similar note, immutable objects behave differently because they can't be changed in place as we saw earlier. If you 'modify' an immutable object, Python creates a new object in memory and the original remains unchanged. This means aliasing is safe for immutable objects, since no variable can accidentally change the value of another.
 
 ## How arguments are passed to functions and what does that imply for mutable and immutable objects?
-When passing arguments to functions in Python, what we are actually passing are the variables that reference the actual objects in memory. This means that the function will receive the reference to the original object, not a copy of the original object.  
+In Python, arguments are passed to functions using a mechanism called 'pass by assignment'. This means the function gets a reference to the original object in memory, not a copy. The function creates its own new local variable that points to the same object that was passed in.
 
-As functions receive a reference to the original object, this implies that mutable objects can be changed within a function, whereas immutable objects cannot be changed within a function.
+As functions receive a reference to the original object, this implies that underlying mutable objects can be changed within a function, whereas underlying immutable objects cannot be changed within a function.
 
 - In this example, we pass the variable that references a mutable object in memory to a function. The function modifies the same list object in memory:
 ```python
@@ -124,3 +129,20 @@ def cant_change_me(x):
 
 # Output: 89
 ```
+
+## Integer pre-allocation
+- Integer pre-allocation refers to pre-allocating the first 262 integers when Python starts.
+- This means all integers from -5 to 256 are created once, and then the same objects are reused throughout the program.
+- This is done because smaller integers are more commonly used (in loops, counters etc.), therefore this is useful for saving memory and improving performance.
+- Larger integers however may or may not be reused.
+- Even though integers are immutable and <i>can</i> be reused, Python doesn't because caching every integer would waste memory and impact performance.
+- In this example, 'a' and 'b' reference the same pre-allocated integer object, which is why a is b returns as True.
+```python
+>>> a = 2
+>>> b = 2
+>>> a is b
+
+#Output: True
+```
+
+## NSMALLPOSINTS & NSMALLNEGINTS
