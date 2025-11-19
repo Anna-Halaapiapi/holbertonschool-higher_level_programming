@@ -135,7 +135,7 @@ def cant_change_me(x):
 - This means all integers from -5 to 256 are created once, and then the same objects are reused throughout the program.
 - This is done because smaller integers are more commonly used (in loops, counters etc.), therefore this is useful for saving memory and improving performance.
 - Larger integers however may or may not be reused.
-- Even though integers are immutable and <i>can</i> be reused, Python doesn't because caching every integer would waste memory and impact performance.
+- Even though integers are immutable objects so <i>can</i> be reused, Python doesn't reuse all of them, because caching every integer would waste memory and impact performance.
 - In this example, 'a' and 'b' reference the same pre-allocated integer object, which is why a is b returns as True.
 ```python
 >>> a = 2
@@ -146,3 +146,22 @@ def cant_change_me(x):
 ```
 
 ## NSMALLPOSINTS & NSMALLNEGINTS
+- In CPython, NSMALLPOSINTS and NSMALLNEGINTS are constants in CPython's C source code.
+- They define how many small integers CPython should be pre-allocated upon starting.
+-  The value of NSMALLPOSINTS is 257 (for integers 0 to 256), and the value of NSMALLNEGINTS is 5 (for integers -5 to -1).
+- These values allow CPython to cache a range of small, commonly used integers in memory.
+- CPython uses these constants to create the full range of integers from -5 to 256 (inclusive). Reusing these integers reduces memory consumption and improves performance, as small integers are commonly used in Python programs.
+- When CPython starts, an internal array is created to hold these small integers. CPython then loops through and fills the array by creating the integers in order, using NSMALLPOSINTS & NSMALLNEGINTS to determine how many positive and negative integers to create.
+
+## The special case of Tuple and Frozenset
+- Tuples and frozensets are a special case because they are immutable, but they can contain mutable objects.
+- This means the tuple or frozenset object itself cannot be modified, e.g. you cannot add, remove or replace its elements after the object has been created.
+- But you <i>can</i> modify any mutable contents stored inside them, which may make it look like the immutable object has changed, when it actually hasn't.
+- In this example, we have a tuple of two elements - a mutable list, and an immutable integer. We modify the mutable list, and although it may look like the tuple itself was modified, only the list within the tuple actually changes. We still have the same two objects, a list and an integer within the tuple itself: 
+```python
+>>> a = ([1, 2], 4)
+>>> a[0].append(3)
+>>> print(a)
+
+# Output: ([1, 2, 3], 4)
+```
